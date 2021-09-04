@@ -697,6 +697,10 @@ input[type="button"].button-primary {
 	background: #313131;
 	color: #FFFFFF;
 }
+input[type="button"].button-primary {
+	background: #313131;
+	color: #FFFFFF;
+}
 .button.button-primary:hover,
 a.button.button-primary:hover,
 button.button-primary:hover,
@@ -743,7 +747,41 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 	border: 0;
 	padding: 0;
 }
+/* Dropdown Button */
 
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+	position: relative;
+	display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	max-width: 100%;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 /** 
  * ===================================================================
@@ -1695,6 +1733,11 @@ header .logo a {
 	position: relative;
 	padding-bottom: 1.8rem;
 }
+#resume .timeline-content a {
+	color: #FF0077;
+	position: relative;
+	padding-bottom: 1.8rem;
+}
 #resume .timeline-content h4::after {
 	content: "";
 	display: block;
@@ -2495,6 +2538,15 @@ header .logo a {
 		transform: scale(1);
 	}
 }
+.arrow {
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+  }.down {
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+  }
 
 
 /** 
