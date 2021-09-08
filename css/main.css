@@ -93,7 +93,22 @@ a:hover, a:focus, a:active {
 	color: #FF0077;
 	outline: 0;
 }
-
+/**
+ * links in Contact Info- (_document-setup.scss)
+ * -------------------------------------------------------------------
+ */
+.contact-info a, a:visited {
+	color: #6e6e6e;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+a:hover, a:focus, a:active {
+	color: #FF0077;
+	outline: 0;
+}
 /** 
  * ===================================================================
  * 03. typography & general theme styles - (_document-setup.scss)
@@ -266,7 +281,12 @@ hr {
 	margin: 2.4rem 0 1.5rem;
 	height: 0;
 }
-
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+  }
 /**
  * Lists - (_document-setup.scss)  
  * -------------------------------------------------------------------
