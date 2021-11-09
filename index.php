@@ -79,6 +79,7 @@
     <!-- intro section
    ================================================== -->
     <section id="intro">
+      
       <div class="intro-overlay"></div>
 
       <div class="intro-content">
