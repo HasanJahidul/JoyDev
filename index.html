@@ -8,7 +8,7 @@
     <!--- basic page needs
    ================================================== -->
     <meta charset="utf-8" />
-    <title>JoyDev</title>
+    <title>Portfolio-Jahidul Hasan</title>
     <meta name="description" content="" />
     <meta name="author" content="" />
 
@@ -21,14 +21,14 @@
 
     <!-- CSS
    ================================================== -->
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/vendor.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/vendor.css" />
 
     <!-- script
    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
+    <script src="./js/modernizr.js"></script>
+    <script src="./js/pace.min.js"></script>
 
     <!-- favicons
 	================================================== -->
@@ -44,8 +44,8 @@
           <a class="menu-toggle" href="#"><span>Menu</span></a>
 
           <div class="">
-            <a href="index.html"
-              ><div class="nav-text"><h5>JoyDev</h5></div></a
+            <a href="./index.html"
+              ><div class="nav-text"><h5>MENU</h5></div></a
             >
           </div>
 
@@ -119,12 +119,12 @@
           ></a>
         </li>
         <li>
-          <a href="https://www.facebook.com/joy5413/"
+          <a href="https://www.facebook.com/jahidulhasanjay/"
             ><i class="fa fa-facebook"></i
           ></a>
         </li>
         <li>
-          <a href="https://hasanjahidul.github.io/JoyDev/"><i class="fa fa-dribbble"></i></a>
+          <a href="http://hasanjahidul.com"><i class="fa fa-dribbble"></i></a>
         </li>
         <li>
           <a href="skype:live:.cid.b85d05799a613317?chat"><i class="fa fa-skype"></i></a>
@@ -153,7 +153,7 @@
           <h1>Let me introduce myself.</h1>
 
           <div class="intro-info">
-            <img src="images/profile-pic.jpg" alt="Profile Picture" />
+            <img src="./images/profile-pic.jpg" alt="Profile Picture" />
            
 
             <p class="lead">
@@ -526,7 +526,7 @@
           <div id="folio-wrapper" class="block-1-2 block-mob-full stack">
             <div class="bgrid folio-item">
               <div class="item-wrap">
-                <img src="images/portfolio/flycashUserDashboard.png" style="width:100%;" />
+                <img src="./images/portfolio/flycashUserDashboard.png" style="width:100%;" />
                 <a href="#modal-01" class="overlay">
                   <div class="folio-item-table">
                     <div class="folio-item-cell">
@@ -541,7 +541,7 @@
 
             <div class="bgrid folio-item">
               <div class="item-wrap">
-                <img src="images/portfolio/AgentDashboardFlycash.png" alt="Shutterbug" style="width:100%;"/>
+                <img src="./images/portfolio/AgentDashboardFlycash.png" alt="Shutterbug" style="width:100%;"/>
                 <a href="#modal-02" class="overlay">
                   <div class="folio-item-table">
                     <div class="folio-item-cell">
@@ -556,7 +556,7 @@
 
             <div class="bgrid folio-item">
               <div class="item-wrap">
-                <img src="images/portfolio/PrisonManagementSystem.jpg" alt="Clouds" />
+                <img src="./images/portfolio/PrisonManagementSystem.jpg" alt="Clouds" />
                 <a href="#modal-03" class="overlay">
                   <div class="folio-item-table">
                     <div class="folio-item-cell">
@@ -618,7 +618,7 @@
 	            ============================================================= -->
             <div id="modal-01" class="popup-modal slider mfp-hide">
               <div class="media">
-                <img src="images/portfolio/flycashUserDashboard.png"style="width:100%;" alt="" />
+                <img src="./images/portfolio/flycashUserDashboard.png"style="width:100%;" alt="" />
               </div>
 
               <div class="description-box">
@@ -639,7 +639,7 @@
 
             <div id="modal-02" class="popup-modal slider mfp-hide">
               <div class="media">
-                <img src="images/portfolio/AgentDashboardFlycash.png"style="width:100%;"  alt="" />
+                <img src="./images/portfolio/AgentDashboardFlycash.png"style="width:100%;"  alt="" />
               </div>
 
               <div class="description-box">
@@ -663,7 +663,7 @@
 
             <div id="modal-03" class="popup-modal slider mfp-hide">
               <div class="media">
-                <img src="images/portfolio/PrisonManagementSystem.jpg" alt="" />
+                <img src="./images/portfolio/PrisonManagementSystem.jpg" alt="" />
               </div>
 
               <div class="description-box">
@@ -896,8 +896,7 @@
       <div class="row contact-form">
         <div class="col-twelve">
           <!-- form -->
-          <form name="contactForm" id="contactForm" action="https://formspree.io/f/mdoybolg"
-          method="POST"">
+          <form name="contactForm" id="contactForm"  action="https://formspree.io/f/mdoybolg" method="POST" >
             <fieldset>
               <div class="form-field">
                 <input
@@ -912,7 +911,7 @@
               </div>
               <div class="form-field">
                 <input
-                  name="_replyto"
+                  name="contactEmail"
                   type="email"
                   id="contactEmail"
                   placeholder="Email"
@@ -920,7 +919,7 @@
                   required=""
                 />
               </div>
-              <!-- <div class="form-field">
+              <div class="form-field">
                 <input
                   name="contactSubject"
                   type="text"
@@ -928,10 +927,10 @@
                   placeholder="Subject"
                   value=""
                 />
-              </div> -->
+              </div> 
               <div class="form-field">
                 <textarea
-                  name="message"
+                  name="contactMessage"
                   id="contactMessage"
                   placeholder="message"
                   rows="10"
@@ -955,7 +954,7 @@
           <!-- Form End -->
 
           <!-- contact-warning -->
-          <!-- <div id="message-warning"></div> -->
+          <div id="message-warning"></div>
           <!-- contact-success -->
           <div id="message-success">
             <i class="fa fa-check"></i>Your message was sent, thank you!<br />
@@ -1055,7 +1054,7 @@
         <div class="col-eight tab-full">
           <div class="copyright">
             <span>© Copyright 2021 </span>
-            <span>Design by <a href="https://hasanjahidul.github.io/JoyDev/">JoyDev</a></span>
+            <span>Design by <a href="http://hasanjahidul.com/">JoyDev</a></span>
           </div>
         </div>
 
@@ -1074,8 +1073,8 @@
 
     <!-- Java Script
    ================================================== -->
-    <script src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="./js/jquery-2.1.3.min.js"></script>
+    <script src="./js/plugins.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
