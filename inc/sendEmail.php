@@ -15,6 +15,8 @@ require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 
 // Replace this with your own email address
 $siteOwnersEmail = 'jahidul0hasan@gmail.com';
+$siteOwnersName = 'Jahidul Hasan';
+$siteOwnersPassword = 'BolaJabeNa';
 $errorMessage =false;
 
 
@@ -71,34 +73,27 @@ if($_POST) {
 
 	try {
 		
-	$mail = new PHPMailer(true);
+	$mail = new PHPMailer();
 		//Server settings
-		//$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-    $mail->isSMTP();                                            //Send using SMTP
+		//$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output  
+	$mail->IsSMTP();                                         //Send using SMTP
 	$mail->SMTPDebug  = false;
-	$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-	$mail->CharSet = 'UTF-8';
-	$mail->SMTPSecure = ''; // secure transfer enabled REQUIRED for Gmail
-	//ses-smtp-user.20211121-125403
-	// $mail->Host = 'email-smtp.us-east-2.amazonaws.com'; //Sets the SMTP hosts of your Email hosting, this for AWS
-	// $mail->Username = 'AKIA3TDVL4JDWHU3CG7S'; //Sets SMTP username
-    // $mail->Password = 'BI+Z5o3Onr80nUxB+GeW7bmbApqfEVJc09gjYLz4JLqk'; //Sets SMTP password
-	$mail->Host = 'ssl://smtp.gmail.com'; //Sets the SMTP hosts of your Email hosting, this for AWS
-	$mail->Username = 'jahidul0hasan@gmail.com'; //Sets SMTP username
-    $mail->Password = 'OfficialPassword'; //Sets SMTP password
-	$mail->Port       = '465';
+	$mail->SMTPAuth   = true;
+	$mail->CharSet = 'UTF-8';                                   //Enable SMTP authentication
+	$mail->SMTPSecure = 'ssl;'; // secure transfer enabled REQUIRED for Gmail
+	$mail->Host = 'smtp.gmail.com'; //Sets the SMTP hosts of your Email hosting, this for AWS
+	$mail->Username = $siteOwnersEmail; //Sets SMTP username
+	$mail->Password = $siteOwnersPassword; //Sets SMTP password
+	$mail->Port       = 587;
 	$mail->SMTPOptions = array(
-        'ssl' => array(
-            'verify_peer' => false,
-            'verify_peer_name' => false,
-            'allow_self_signed' => true
-        )
-    );
-   
-	
-	
+		'ssl' => array(
+			'verify_peer' => false,
+			'verify_peer_name' => false,
+			'allow_self_signed' => true
+		)
+	);
 		//Recipients
-		$mail->From = $email;
+		$mail->SetFrom= $email;
 		$mail->FromName = 'HasanJahidul.com'; //Sets the From name of the message
 		$mail->addAddress($siteOwnersEmail);     //Add a recipient
 		$mail->addReplyTo($email,$name);
@@ -117,14 +112,16 @@ if($_POST) {
 		
 		if($mail->send()==true){
            // echo 'Message has been sent';
-
-			$ThanksMail = new PHPMailer;
+		   $ThanksMail = new PHPMailer();
 			$ThanksMail->IsSMTP(); //Sets Mailer to send message using SMTP
 			$ThanksMail->SMTPDebug = false; //Debug mode. Comment this for production mode 
+			$ThanksMail->SMTPAuth   = true;   
 			$ThanksMail->CharSet = 'UTF-8';
-			$ThanksMail->Host = 'ssl://smtp.gmail.com'; //Sets the SMTP hosts of your EThanksMail hosting, this for AWS
-			$ThanksMail->Username = 'jahidul0hasan@gmail.com'; //Sets SMTP username
-			$ThanksMail->Password = 'OfficialPassword'; //Sets SMTP password
+			$ThanksMail->SMTPSecure = 'ssl'; //Sets connection prefix. Options are "", "ssl" or "tls"
+			$ThanksMail->Host = 'smtp.gmail.com'; //Sets the SMTP hosts of your EThanksMail hosting, this for AWS
+			$ThanksMail->Username = $siteOwnersEmail; //Sets SMTP username
+			$ThanksMail->Password = $siteOwnersPassword; //Sets SMTP password
+			$ThanksMail->Port = 465; //Sets the default SMTP server port
 			$ThanksMail->SMTPOptions = array(
 				'ssl' => array(
 					'verify_peer' => false,
@@ -133,28 +130,24 @@ if($_POST) {
 				)
 			);
 			
-			$ThanksMail->Port = '465'; //Sets the default SMTP server port
-			$ThanksMail->SMTPAuth = true;	//Sets SMTP authentication. Utilizes the Username and Password variables
-			$ThanksMail->SMTPSecure = ''; //Sets connection prefix. Options are "", "ssl" or "tls"
-			$ThanksMail->From = 'jahidul0hasan@gmail.com'; //Sets the From eThanksMail address for the message
+			
+			$ThanksMail->From = $siteOwnersEmail; //Sets the From eThanksMail address for the message
 			$ThanksMail->FromName = 'Hasanjahidul.com'; //Sets the From name of the message
-			$ThanksMail->AddAddress($email, 'Jahidul Hasan'); //Adds a "To" address
+			$ThanksMail->AddAddress($email, $siteOwnersName); //Adds a "To" address
 			$ThanksMail->IsHTML(true);//Sets message type to HTML
 			$ThanksMail->Subject = 'Thanks for contacting to Hasanjahidul.com'; //Sets the Subject of the message
 			//An HTML or plain text message body
 			$ThanksMail->Body =$body ;
-			// $ThanksMail->AltBody = '<b>Please wait for reply. Jahidul Hasan is going to reach you as soon as possible </b>';
 		
-		// 	$result = $ThanksMail->Send();
+			//$ThanksMail->Send();
 
-		// //Content
-		// $ThanksMail->isHTML(true);                                  //Set email format to HTML
-		// $ThanksMail->Subject  = 'Thanks for contacting to Hasanjahidul.com';
-		// $ThanksMail->Body    =  "<b>Please wait for reply. Jahidul Hasan is going to reach you as soon as possible </b>";
-		// $ThanksMail->AltBody = "</b>Please wait for reply. Jahidul Hasan is going to reach you as soon as possible</b>";
-		//$ThanksMail->Send();
-			$ThanksMail->Send();
-			echo 'Message has been sent';
+			if ($ThanksMail->send()==true){
+				echo 'Message has been sent';
+			}else{
+				echo 'We have recieved your message but we are unable to send you a confirmation email';
+
+			}
+			
 			
             }
             else { echo "Something went wrong. Please try again."; }
