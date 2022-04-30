@@ -30,6 +30,29 @@ if($_POST) {
    $subject = trim(stripslashes($_POST['contactSubject']));
    $contact_message = trim(stripslashes($_POST['contactMessage']));
 
+   // PHP function to Validate Blcoked User
+	function Search($name, $block)
+	{
+		//return (array_search($name, $array));
+		if(array_search($name, $block)!==false){
+			return true;
+			//echo "true";
+		}else{
+			return false;
+			//echo "false";
+		}
+	}
+	$block = array(
+		"HenryVag",
+		"aakash",
+		"saran",
+		"mohan",
+		"saran"
+	);
+	//print_r(Search($name, $block));
+
+
+
    // Check Name
 	if (strlen($name) < 2) {
 		$error['name'] = "Please enter your name.";
@@ -66,10 +89,17 @@ if($_POST) {
 	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 
-   if ($errorMessage ==false) {
+   if ($errorMessage ==false ) {
+	   if(Search($name,$block)==true){
+		   echo "Sorry, you are blocked from sending email.";
+	   }else{
 
-      // 	ini_set("sendmail_from", $siteOwnersEmail); // for windows server
-    //   $mail = mail($siteOwnersEmail, $subject, $message, $headers);
+	   
+
+
+
+	//ini_set("sendmail_from", $siteOwnersEmail); // for windows server
+    //$mail = mail($siteOwnersEmail, $subject, $message, $headers);
 
 	try {
 		
@@ -161,7 +191,7 @@ if($_POST) {
 		
 	} # end if - no validation error
 
-	else {
+}else {
 
 		$response = (isset($error['name'])) ? $error['name'] . "<br /> \n" : null;
 		$response .= (isset($error['email'])) ? $error['email'] . "<br /> \n" : null;
@@ -171,6 +201,9 @@ if($_POST) {
 
 	} # end if - there was a validation error
 
+    
+
+	
 }
 
 ?>
