@@ -91,7 +91,7 @@ if($_POST) {
 
    if ($errorMessage ==false ) {
 	   if(Search($name,$block)==true){
-		   echo "Sorry, you are blocked from sending email.";
+		   echo "Sorry, you are blocked from sending messages.";
 	   }else{
 
 	   

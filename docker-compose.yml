@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  apache:
+    build:
+      context: .
+      args:
+        - DB_HOST=${DB_HOST}
+        - DB_NAME=${DB_NAME}
+        - DB_PORT=${DB_PORT}
+        - DB_USER=${DB_USER}
+        - DB_PASSWORD=${DB_PASSWORD}
+    image: ashrhmn/hasanjahiduldotcom-img
+    ports:
+      - ${APP_PORT}:80
+    container_name: web
+networks:
+        apache:
+                driver: joydev_default
